@@ -5,24 +5,35 @@ from torchsummary import summary
 import os
 import numpy as np
 from PIL import Image
+from tqdm.auto import tqdm
 
 from helper import *
 from model.generator import SkipEncoderDecoder, input_noise
 
-DTYPE = torch.cuda.FloatTensor
-INPUT_DEPTH = 32
-LR = 0.01 
-TRAINING_STEPS = 6001
-SHOW_STEP = 50
-REG_NOISE = 0.03
+import argparse
 
-image_path  = os.path.join('data', 'me.jpg')
-watermark_path = os.path.join('data', 'watermark2.png')
+parser = argparse.ArgumentParser(description = 'Removing Watermark')
+parser.add_argument('--image-path', type = str, default = './data/watermark-available/me.jpg', help = 'Path to the "watermarked" image.')
+parser.add_argument('--watermark-path', type = str, default = './data/watermark-available/watermark.png', help = 'Path to the "watermark" image.')
+parser.add_argument('--input-depth', type = int, default = 32, help = 'Max channel dimension of the noise input. Set it based on gpu/device memory you have available.')
+parser.add_argument('--lr', type = float, default = 0.01, help = 'Learning rate.')
+parser.add_argument('--training-steps', type = int, default = 4000, help = 'Number of training iterations.')
+parser.add_argument('--show-steps', type = int, default = 50, help = 'Interval for visualizing results.')
+parser.add_argument('--reg-noise', type = float, default = 0.03, help = 'Hyper-parameter for regularized noise input.')
+parser.add_argument('--device', type = str, default = 'cuda', help = 'Device for pytorch, either "cpu" or "cuda".')
 
-image_pil = read_image(image_path)
+args = parser.parse_args()
+if args.device == 'cuda' and not torch.cuda.is_available():
+    args.device = 'cpu'
+    print('\nSetting device to "cpu", since torch is not built with "cuda" support...')
+
+DTYPE = torch.cuda.FloatTensor if args.device == "cuda" else torch.FloatTensor
+
+image_pil = read_image(args.image_path)
 image_pil = image_pil.convert('RGB')
+image_pil = image_pil.resize((128, 128))
 
-image_mask_pil = read_image(watermark_path)
+image_mask_pil = read_image(args.watermark_path)
 image_mask_pil = image_mask_pil.convert('RGB')
 image_mask_pil = image_mask_pil.resize((image_pil.size[0], image_pil.size[1]))
 
@@ -30,42 +41,42 @@ image_np = pil_to_np_array(image_pil)
 image_mask_np = pil_to_np_array(image_mask_pil)
 image_mask_np[image_mask_np == 0.0] = 1.0
 
-image_mask_var = np_to_torch_array(image_mask_np).type(DTYPE)
+image_var = np_to_torch_array(image_np).type(DTYPE)
+mask_var = np_to_torch_array(image_mask_np).type(DTYPE)
 
 visualize_sample(image_np, image_mask_np, image_mask_np * image_np, nrow = 3, size_factor = 12)
 
-
+print('Building model...\n')
 generator = SkipEncoderDecoder(
-    INPUT_DEPTH,
+    args.input_depth,
     num_channels_down = [128] * 5,
     num_channels_up = [128] * 5,
     num_channels_skip = [128] * 5
 ).type(DTYPE)
-generator_input = input_noise(INPUT_DEPTH, image_np.shape[1:]).type(DTYPE)
+generator_input = input_noise(args.input_depth, image_np.shape[1:]).type(DTYPE)
 summary(generator, generator_input.shape[1:])
 
-objective = torch.nn.MSELoss().type(DTYPE)
-optimizer = optim.Adam(generator.parameters(), LR)
+objective = nn.MSELoss()
+optimizer = optim.Adam(generator.parameters(), args.lr)
 
-image_var = np_to_torch_array(image_np).type(DTYPE)
-mask_var = np_to_torch_array(image_mask_np).type(DTYPE)
+generator_input_saved = generator_input.clone()
+noise = generator_input.clone()
+generator_input = generator_input_saved
 
-generator_input_saved = generator_input.detach().clone()
-noise = generator_input.detach().clone()
+print('\nStarting training...\n')
 
-for step in range(TRAINING_STEPS):
+for step in tqdm(range(args.training_steps), desc = 'Completed', ncols = 100):
     optimizer.zero_grad()
-    generator_input = generator_input_saved
 
-    if REG_NOISE > 0:
-        generator_input = generator_input_saved + (noise.normal_() * REG_NOISE)
+    if args.reg_noise > 0:
+        generator_input = generator_input_saved + (noise.normal_() * args.reg_noise)
         
     out = generator(generator_input)
    
     loss = objective(out * mask_var, image_var * mask_var)
     loss.backward()
         
-    if step % SHOW_STEP == 0:
+    if step % args.show_steps == 0:
         out_np = torch_to_np_array(out)
         visualize_sample(np.clip(out_np, 0, 1), nrow = 1, size_factor = 5)
         
