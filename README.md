@@ -116,11 +116,21 @@ I'm simply using MS Paint for that. And per image, it hardly takes 1 minute to d
 
 Here are some sample overlays...
 
+![Overlay example](outputs/watermark-unavailable/overlays/overlay0.png)
+
 ![Overlay example](outputs/watermark-unavailable/overlays/overlay1.png)
 
 ![Overlay example](outputs/watermark-unavailable/overlays/overlay2.png)
 
 ## # Time for the results
+
+A sample progress of the generator:
+
+![Progress](outputs/watermark-unavailable/progress.gif)
+
+### Experiment 0
+
+![Experiment result](outputs/watermark-unavailable/output0.png)
 
 ### Experiment 1
 
