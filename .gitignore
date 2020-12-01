@@ -1,2 +1,3 @@
 __pycache__
-model
+model/generator.py
+model/modules.py
