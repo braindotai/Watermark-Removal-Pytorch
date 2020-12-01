@@ -84,7 +84,7 @@ In this scenario, we'll have the watermarked image only. And this is the actual 
     - What exactly is the part of watermark?
     - What exactly is not the part of watermark?
 
-- And we want to do this without any training!!! Why? Well there's no point, I mean we know for a fact that the generator is indeed capable of inpainting the watermark, __ it's just us who are not able to provide the answers to the generator for questions above.__
+- And we want to do this without any training!!! Why? Well there's no point, I mean we know for a fact that the generator is indeed capable of inpainting the watermark, __it's just us who are not able to provide the answers to the generator for questions above.__
 
 ### # My solution
 
