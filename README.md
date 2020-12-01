@@ -14,9 +14,9 @@ In this repo, I've implemented the watermark removal task, and the results are j
 
 - The scale, position, rotation and other spatial transformations of the watermark, exactly matches the applied watermark of the image.
 
-Any watermarked image can be represented as the hadamard product of `Original Image` and `Watermark`.
+Any watermarked image can be represented as the Hadamard product of `Original Image` and `Watermark`.
 
-So if we know what `Watermark` is, then its just a matter of training a generator that produces outputs, such that `Watermarked Image` is equal to `Generated Image * Watermark`. The authors propose to simply use L2 loss to minimize distance between them.
+So if we know what `Watermark` is, then its just a matter of training a generator that produces outputs, such that `Watermarked Image` is equal to `Generated Image * Watermark`. The authors propose to simply use L2 loss to minimize the distance between them.
 
 Here's a sample test run-
 
