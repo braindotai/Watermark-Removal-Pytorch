@@ -122,7 +122,7 @@ Here are some sample overlays...
 
 ![Overlay example](outputs/watermark-unavailable/overlays/overlay2.png)
 
-And the final step is to simply follow the above training procedure, by simply replacing the supposedly given watermark with our drawn overlay.
+And the final step is to simply follow the above training procedure, b replacing the supposedly known watermark with our hand drawn overlay.
 
 ## # Time for the results
 
