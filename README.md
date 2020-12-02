@@ -16,7 +16,7 @@ In this repo, I've implemented the watermark removal task, and the results are j
 
 Any watermarked image can be represented as the Hadamard product of `Original Image` and `Watermark`.
 
-So if we know what `Watermark` is, then its just a matter of training a generator that produces outputs, such that `Watermarked Image` is equal to `Generated Image * Watermark`. The authors propose to simply use L2 loss to minimize the distance between them.
+So if we know what `Watermark` is, then its just a matter of training a generator that produces outputs, such that `Watermarked Image` is equal to `Generated Image * Watermark`. And the authors propose to simply use L2 loss to minimize the distance between them. The generator simply takes the random noise with same height and width as of watermarked image, which we can regularize, and produces the outputs.
 
 Here's a sample test run-
 
@@ -122,6 +122,8 @@ Here are some sample overlays...
 
 ![Overlay example](outputs/watermark-unavailable/overlays/overlay2.png)
 
+And the final step is to simply follow the above training procedure, by simply replacing the supposedly given watermark with our drawn overlay.
+
 ## # Time for the results
 
 A sample progress of the generator:
@@ -157,3 +159,5 @@ A sample progress of the generator:
 ![Experiment result](outputs/watermark-unavailable/output6.png)
 
 As I said earlier, the outputs are highly realistic with almost unnoticeable artefacts.
+
+# Author - Rishik Mourya
