@@ -1,5 +1,7 @@
 # Watermark Removal using Deep Image Priors with Pytorch
 
+<img src='awesome_outputs.png' atl="Final Results" style="floar: center">
+
 ## __This is the implementation of paper [Deep Image Prior](https://dmitryulyanov.github.io/deep_image_prior), all credit goes its authors.__
 
 CNNs are very common for image generation and restoration tasks. And it is believed that their great performance is because of their ability to learn realistic image priors from training on large datasets. This paper shows that the structure of a generator alone is sufficient to provide enough low-level image statistics without any learning. Thus most of the image restoration tasks, for example, denoising, super-resolution, artefacts removal, watermark removal etc can be done with highly realistic results without any training.
