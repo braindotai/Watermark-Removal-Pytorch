@@ -1,6 +1,6 @@
 # Watermark Removal using Deep Image Priors with Pytorch
 
-<img src='final_outputs.png' atl="Final Results" style="floar: center; border-radius: 6px;">
+<img src='final_outputs.webp' atl="Final Results" style="floar: center; border-radius: 6px;">
 
 ## __This is the implementation of paper [Deep Image Prior](https://dmitryulyanov.github.io/deep_image_prior), all credit goes its authors.__
 
@@ -134,31 +134,31 @@ A sample progress of the generator:
 
 ### Experiment 0
 
-![Experiment result](outputs/watermark-unavailable/output0.png)
+![Experiment result](outputs/watermark-unavailable/output0.webp)
 
 ### Experiment 1
 
-![Experiment result](outputs/watermark-unavailable/output1.png)
+![Experiment result](outputs/watermark-unavailable/output1.webp)
 
 ### Experiment 2
 
-![Experiment result](outputs/watermark-unavailable/output2.png)
+![Experiment result](outputs/watermark-unavailable/output2.webp)
 
 ### Experiment 3
 
-![Experiment result](outputs/watermark-unavailable/output3.png)
+![Experiment result](outputs/watermark-unavailable/output3.webp)
 
 ### Experiment 4
 
-![Experiment result](outputs/watermark-unavailable/output4.png)
+![Experiment result](outputs/watermark-unavailable/output4.webp)
 
 ### Experiment 5
 
-![Experiment result](outputs/watermark-unavailable/output5.png)
+![Experiment result](outputs/watermark-unavailable/output5.webp)
 
 ### Experiment 6
 
-![Experiment result](outputs/watermark-unavailable/output6.png)
+![Experiment result](outputs/watermark-unavailable/output6.webp)
 
 As I said earlier, the outputs are highly realistic with almost unnoticeable artefacts.
 
