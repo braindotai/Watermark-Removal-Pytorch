@@ -162,4 +162,6 @@ A sample progress of the generator:
 
 As I said earlier, the outputs are highly realistic with almost unnoticeable artefacts.
 
+## [__Read Full Article__](https://brainbust.medium.com/watermark-removal-using-deep-image-priors-d37f87a9ca1)
+
 # Author - Rishik Mourya
