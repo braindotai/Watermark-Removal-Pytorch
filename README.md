@@ -1,6 +1,6 @@
 # Watermark Removal using Deep Image Priors with Pytorch
 
-<img src='final_outputs.webp' atl="Final Results" style="floar: center; border-radius: 6px;">
+<img align="center" src='final_outputs.webp' atl="Final Results" style="floar: center; border-radius: 6px;">
 
 ## __This is the implementation of paper [Deep Image Prior](https://dmitryulyanov.github.io/deep_image_prior), all credit goes its authors.__
 
@@ -22,7 +22,7 @@ So if we know what `Watermark` is, then its just a matter of training a generato
 
 Here's a sample test run-
 
-<table style="float:center">
+<table align="center">
  <tr>
   <th>Original Image</th><th>Watermark</th><th>Watermarked-Image</th>
  </tr>
