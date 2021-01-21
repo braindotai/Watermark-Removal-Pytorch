@@ -1,6 +1,8 @@
 # Watermark Removal using Deep Image Priors with Pytorch
 
-<img align="center" src='final_outputs.webp' atl="Final Results" style="floar: center; border-radius: 6px;">
+<div align="center">
+<img src='final_outputs.webp' atl="Final Results" style="floar: center; border-radius: 6px;">
+</div>
 
 ## __This is the implementation of paper [Deep Image Prior](https://dmitryulyanov.github.io/deep_image_prior), all credit goes its authors.__
 
