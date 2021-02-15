@@ -164,6 +164,17 @@ A sample progress of the generator:
 
 As I said earlier, the outputs are highly realistic with almost unnoticeable artefacts.
 
+# A Bonus Usecase :)
+
+Since watermark removal is one the application of image inpainting, so using this notebook you can even edit the images as per your need, that is removing any unwanted part of the image.
+
+Below are the final outputs for some sample image editing examples:
+
+![Experiment result](outputs/image-editing/edit1.png)
+![Experiment result](outputs/image-editing/edit2.png)
+![Experiment result](outputs/image-editing/edit3.png)
+
+
 ## [__Read Full Article__](https://brainbust.medium.com/watermark-removal-using-deep-image-priors-d37f87a9ca1)
 
 # Author - Rishik Mourya
