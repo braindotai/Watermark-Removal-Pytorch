@@ -1,10 +1,10 @@
 import numpy as np
 from PIL import Image
+from tqdm import tqdm
 import matplotlib.pyplot as plt
 
 import torch
 from torchvision.utils import make_grid
-
 
 def pil_to_np_array(pil_image):
     ar = np.array(pil_image)
@@ -36,9 +36,35 @@ def get_image_grid(images, nrow = 3):
     
 def visualize_sample(*images_np, nrow = 3, size_factor = 10):
     c = max(x.shape[0] for x in images_np)
-    images_np = [x if (x.shape[0] == c) else np.concatenate([x, x, x], axis=0) for x in images_np]
+    images_np = [x if (x.shape[0] == c) else np.concatenate([x, x, x], axis = 0) for x in images_np]
     grid = get_image_grid(images_np, nrow)
     plt.figure(figsize = (len(images_np) + size_factor, 12 + size_factor))
     plt.axis('off')
     plt.imshow(grid.transpose(1, 2, 0))
     plt.show()
+
+def max_dimension_resize(image_pil, mask_pil, max_dim):
+    w, h = image_pil.size
+    aspect_ratio = w / h
+    if w > max_dim:
+        h = int((h / w) * max_dim)
+        w = max_dim
+    elif h > max_dim:
+        w = int((w / h) * max_dim)
+        h = max_dim
+    return image_pil.resize((w, h)), mask_pil.resize((w, h))
+
+def preprocess_images(image_path, mask_path, max_dim):
+    image_pil = read_image(image_path).convert('RGB')
+    mask_pil = read_image(mask_path).convert('RGB')
+
+    image_pil, mask_pil = max_dimension_resize(image_pil, mask_pil, max_dim)
+
+    image_np = pil_to_np_array(image_pil)
+    mask_np = pil_to_np_array(mask_pil)
+
+    print('Visualizing mask overlap...')
+
+    visualize_sample(image_np, mask_np, image_np * mask_np, nrow = 3, size_factor = 10)
+
+    return image_np, mask_np
