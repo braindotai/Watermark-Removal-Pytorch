@@ -50,23 +50,22 @@ Run `$ python inference.py` with following arguments-
 Removing Watermark
 
 optional arguments:
--h, --help          show this help message and exit
---image-path IMAGE_PATH
-                    Path to the "watermarked" image.
---watermark-path WATERMARK_PATH
-                    Path to the "watermark" image.
---input-depth INPUT_DEPTH
-                    Max channel dimension of the noise input. Set it
-                    based on gpu/device memory you have available.
---lr LR             Learning rate.
---training-steps TRAINING_STEPS
-                    Number of training iterations.
---show-steps SHOW_STEPS
-                    Interval for visualizing results.
---reg-noise REG_NOISE
-                    Hyper-parameter for regularized noise input.
---device DEVICE
-                    Device for pytorch, either "cpu" or "cuda".
+  -h, --help            show this help message and exit
+  --image-path IMAGE_PATH
+                        Path to the "watermarked" image.
+  --mask-path MASK_PATH
+                        Path to the "watermark" image.
+  --input-depth INPUT_DEPTH
+                        Max channel dimension of the noise input. Set it based
+                        on gpu/device memory you have available.
+  --lr LR               Learning rate.
+  --training-steps TRAINING_STEPS
+                        Number of training iterations.
+  --show-step SHOW_STEP
+                        Interval for visualizing results.
+  --reg-noise REG_NOISE
+                        Hyper-parameter for regularized noise input.
+  --max-dim MAX_DIM     Max dimension of the final output image
 
 ```
 
