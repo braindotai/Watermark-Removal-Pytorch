@@ -1,5 +1,5 @@
 from torch import optim
-
+from tqdm.auto import tqdm
 from helper import *
 from model.generator import SkipEncoderDecoder, input_noise
 
