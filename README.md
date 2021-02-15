@@ -1,6 +1,8 @@
 # Watermark Removal using Deep Image Priors with Pytorch
 
+<div align="center">
 <img src='final_outputs.webp' atl="Final Results" style="floar: center; border-radius: 6px;">
+</div>
 
 ## __This is the implementation of paper [Deep Image Prior](https://dmitryulyanov.github.io/deep_image_prior), all credit goes its authors.__
 
@@ -22,7 +24,7 @@ So if we know what `Watermark` is, then its just a matter of training a generato
 
 Here's a sample test run-
 
-<table style="float:center">
+<table align="center">
  <tr>
   <th>Original Image</th><th>Watermark</th><th>Watermarked-Image</th>
  </tr>
@@ -124,7 +126,7 @@ Here are some sample overlays...
 
 ![Overlay example](outputs/watermark-unavailable/overlays/overlay2.png)
 
-And the final step is to simply follow the above training procedure, b replacing the supposedly known watermark with our hand drawn overlay.
+And the final step is to simply follow the above training procedure, by replacing the supposedly known watermark with our hand drawn overlay.
 
 ## # Time for the results
 
@@ -161,5 +163,7 @@ A sample progress of the generator:
 ![Experiment result](outputs/watermark-unavailable/output6.webp)
 
 As I said earlier, the outputs are highly realistic with almost unnoticeable artefacts.
+
+## [__Read Full Article__](https://brainbust.medium.com/watermark-removal-using-deep-image-priors-d37f87a9ca1)
 
 # Author - Rishik Mourya
