@@ -2,13 +2,26 @@ import torch
 from torch import nn
 import numpy as np
 
+class DepthwiseSeperableConv2d(nn.Module):
+    def __init__(self, input_channels, output_channels, **kwargs):
+        super(DepthwiseSeperableConv2d, self).__init__()
+
+        self.depthwise = nn.Conv2d(input_channels, input_channels, groups = input_channels, **kwargs)
+        self.pointwise = nn.Conv2d(input_channels, output_channels, kernel_size = 1)
+
+    def forward(self, x):
+        x = self.depthwise(x)
+        x = self.pointwise(x)
+
+        return x
+
 class Conv2dBlock(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size, stride = 1, bias = False):
         super(Conv2dBlock, self).__init__()
 
         self.model = nn.Sequential(
             nn.ReflectionPad2d(int((kernel_size - 1) / 2)),
-            nn.Conv2d(in_channels, out_channels, kernel_size, stride, padding = 0, bias = bias),
+            DepthwiseSeperableConv2d(in_channels, out_channels, kernel_size = kernel_size, stride = stride, padding = 0, bias = bias),
             nn.BatchNorm2d(out_channels),
             nn.LeakyReLU(0.2)
         )
