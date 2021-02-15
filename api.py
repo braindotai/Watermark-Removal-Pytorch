@@ -3,7 +3,7 @@ from tqdm.auto import tqdm
 from helper import *
 from model.generator import SkipEncoderDecoder, input_noise
 
-def remove_watermark(image_path, mask_path, max_dim, reg_noise, input_depth, lr, show_step, training_steps, tqdm = tqdm):
+def remove_watermark(image_path, mask_path, max_dim, reg_noise, input_depth, lr, show_step, training_steps, tqdm_length = 100):
     DTYPE = torch.cuda.FloatTensor if torch.cuda.is_available() else torch.FloatTensor
     if not torch.cuda.is_available():
         print('\nSetting device to "cpu", since torch is not built with "cuda" support...')
@@ -32,7 +32,7 @@ def remove_watermark(image_path, mask_path, max_dim, reg_noise, input_depth, lr,
 
     print('\nStarting training...\n')
 
-    progress_bar = tqdm(range(training_steps), desc = 'Completed', ncols = 100)
+    progress_bar = tqdm(range(training_steps), desc = 'Completed', ncols = tqdm_length)
 
     for step in progress_bar:
         optimizer.zero_grad()
