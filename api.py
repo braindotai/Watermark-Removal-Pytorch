@@ -59,7 +59,7 @@ def remove_watermark(image_path, mask_path, max_dim, reg_noise, input_depth, lr,
 
     pil_image = Image.fromarray((output_image.transpose(1, 2, 0) * 255.0).astype('uint8'))
 
-    output_path = image_path.split('.')[-2] + '-without-watermark.jpg'
-    print(f'\nSaving final output image to: "{output_path}"')
+    output_path = image_path.split('/')[-1].split('.')[-2] + '-output.jpg'
+    print(f'\nSaving final output image to: "{output_path}"\n')
 
     pil_image.save(output_path)
