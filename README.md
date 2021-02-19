@@ -71,7 +71,6 @@ optional arguments:
 
 ### # Outputs
 
-
 <div align="center">
 <img src='outputs/watermark-available/progress.gif' atl="Generator's Progress" style="floar: center; border-radius: 6px;">
 </div>
@@ -134,7 +133,9 @@ And the final step is to simply follow the above training procedure, by replacin
 
 A sample progress of the generator:
 
-![Progress](outputs/watermark-unavailable/progress.gif)
+<div align="center">
+<img src='outputs/watermark-unavailable/progress.gif' atl="Generator's Progress" style="floar: center; border-radius: 6px;">
+</div>
 
 ### Experiment 0
 
@@ -172,10 +173,21 @@ Since watermark removal is one the application of image inpainting, so using thi
 
 Below are the final outputs for some sample image editing examples:
 
-![Experiment result](outputs/image-editing/edit1.png)
-![Experiment result](outputs/image-editing/edit2.png)
-![Experiment result](outputs/image-editing/edit3.png)
+<div align="center">
+<img src='outputs/image-editing/edit1.png' atl="Image Editing" style="floar: center; border-radius: 6px;">
+</div>
 
+<div align="center">
+<img src='outputs/image-editing/edit3.png' atl="Image Editing" style="floar: center; border-radius: 6px;">
+</div>
+
+<div align="center">
+<img src='outputs/image-editing/edit2.png' atl="Image Editing" style="floar: center; border-radius: 6px;">
+</div>
+
+## # Note
+
+Look at the last output image, as you can see, the final outputs contains pretty visible artefacts in this case. Our model is not trained on any dataset to learn any shape or form of image statistics, the outputs of the generator solely depends on the single image, multiplied by the mask, so if the mask is covering too much portion of the image, then it becomes too hard for the model to make the best predictions for filling those missing pixels. So in conclusion, thinner/detailed the mask, better the outputs. 
 
 ## [__Read Full Article__](https://brainbust.medium.com/watermark-removal-using-deep-image-priors-d37f87a9ca1)
 
