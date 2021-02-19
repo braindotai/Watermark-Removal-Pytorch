@@ -4,6 +4,33 @@
 <img src='final_outputs.webp' atl="Final Results" style="floar: center; border-radius: 6px;">
 </div>
 
+## ✅ Update 1
+
+Updated the model architecture, and reduced the parameters count from ~3,000,000 to ~500,000 for faster inference.
+
+## ✅ Update 2
+
+Added api endpoint for easy usage:
+
+```python
+
+from api import remove_watermark
+
+remove_watermark(
+    image_path = IMAGE_NAME,
+    mask_path = MASK_NAME,
+    max_dim = MAX_DIM,
+    show_step = SHOW_STEPS,
+    reg_noise = REG_NOISE,
+    input_depth = INPUT_DEPTH,
+    lr = LR,
+    training_steps = TRAINING_STEPS,
+    tqdm_length = 900
+)
+
+```
+
+
 ## __This is the implementation of paper [Deep Image Prior](https://dmitryulyanov.github.io/deep_image_prior), all credit goes its authors.__
 
 CNNs are very common for image generation and restoration tasks. And it is believed that their great performance is because of their ability to learn realistic image priors from training on large datasets. This paper shows that the structure of a generator alone is sufficient to provide enough low-level image statistics without any learning. Thus most of the image restoration tasks, for example, denoising, super-resolution, artefacts removal, watermark removal etc can be done with highly realistic results without any training.
