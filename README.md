@@ -71,7 +71,10 @@ optional arguments:
 
 ### # Outputs
 
-![Progress of the generator](outputs/watermark-available/progress.gif)
+
+<div align="center">
+<img src='outputs/watermark-available/progress.gif' atl="Generator's Progress" style="floar: center; border-radius: 6px;">
+</div>
 
 ## __When the watermark is not available__.
 
