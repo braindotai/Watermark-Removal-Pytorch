@@ -209,6 +209,10 @@ Below are the final outputs for some sample image editing examples:
 </div>
 
 <div align="center">
+<img src='outputs/image-editing/edit4.png' atl="Image Editing" style="floar: center; border-radius: 6px;">
+</div>
+
+<div align="center">
 <img src='outputs/image-editing/edit2.png' atl="Image Editing" style="floar: center; border-radius: 6px;">
 </div>
 
