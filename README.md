@@ -33,6 +33,11 @@ remove_watermark(
 
 ## __This is the implementation of paper [Deep Image Prior](https://dmitryulyanov.github.io/deep_image_prior), all credit goes its authors.__
 
+## My Contribution
+- I provide a super simple yet highly effective solution to handle the scenario, which is not covered by the original paper, that is, when the watermark is not available separately to us prior to any training.
+- A nice api wrapper which is easy to work with :)
+
+## Introduction
 CNNs are very common for image generation and restoration tasks. And it is believed that their great performance is because of their ability to learn realistic image priors from training on large datasets. This paper shows that the structure of a generator alone is sufficient to provide enough low-level image statistics without any learning. Thus most of the image restoration tasks, for example, denoising, super-resolution, artefacts removal, watermark removal etc can be done with highly realistic results without any training.
 
 In this repo, I've implemented the watermark removal task, and the results are just as good as claimed by the authors. 
