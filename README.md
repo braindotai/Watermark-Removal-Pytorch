@@ -233,3 +233,7 @@ Look at the last output image, as you can see, the final outputs contains pretty
 ## [__Read Full Article__](https://brainbust.medium.com/watermark-removal-using-deep-image-priors-d37f87a9ca1)
 
 # Author - Rishik Mourya [[Linkedin](https://www.linkedin.com/in/brain-bust/)]
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=braindotai/Watermark-Removal-Pytorch&type=Timeline)](https://star-history.com/#braindotai/Watermark-Removal-Pytorch&Timeline)
