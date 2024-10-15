@@ -9,7 +9,7 @@ parser.add_argument('--lr', type = float, default = 0.01, help = 'Learning rate.
 parser.add_argument('--training-steps', type = int, default = 3000, help = 'Number of training iterations.')
 parser.add_argument('--show-step', type = int, default = 200, help = 'Interval for visualizing results.')
 parser.add_argument('--reg-noise', type = float, default = 0.03, help = 'Hyper-parameter for regularized noise input.')
-parser.add_argument('--max-dim', type = float, default = 512, help = 'Max dimension of the final output image')
+parser.add_argument('--max-dim', type = int, default = 512, help = 'Max dimension of the final output image')
 
 args = parser.parse_args()
 
